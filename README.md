@@ -135,9 +135,11 @@ For testing, use the provided `matrix_interpretation.txt` dataset.
 
 ## Authors
 
-| GitHub                                            | Name          | Role                     |
-| ------------------------------------------------- | ------------- | ------------------------ |
-
+| GitHub       | Name                 | Role                     |
+| ------------ | -------------        | ------------------------ |
+| mariika1306  |	Vlasova Maria       | Co-author & Developer     |
+| xugowho	     | Demchenko Alexander |	Co-author & Developer     |
+| aadergileva	 | Dergileva Anastasia |	Co-author & Developer     |
 > Project developed independently. All code, formulas, interpretations and visualizations are original.
 
 ## License
