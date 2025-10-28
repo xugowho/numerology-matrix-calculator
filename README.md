@@ -80,7 +80,7 @@ Meanings:
 
 The program outputs:
 
-* **Matrix Visualization** saved as a PNG file (`matrix_of_destiny.png`)
+* **Matrix Visualization** saved as a PNG file (`Matrix_of_Destiny_{DD-MM-YYYY}.png`)
 * **Arcana Interpretation** in the console, including:
 
   * Center: number, name, center-specific value
@@ -129,7 +129,7 @@ Corner 4 : 11 - Strength  - Embodies inner courage, endurance, and compassionate
 For testing, use the provided `matrix_interpretation.txt` dataset. 
 
 1. Run the script.
-2. Verify that `matrix_of_destiny.png` is generated and compare to image from `data\example`
+2. Verify that `Matrix_of_Destiny_{DD-MM-YYYY}.png` is generated and compare to image from `data\example`
 
 ---
 
