@@ -1,108 +1,145 @@
-# numerology-matrix-calculator
-A computational numerology tool that generates and visualizes the personal Matrix of Destiny from a birth date, providing a structured analytical framework for exploring numerical patterns and symbolic relationships.
+# Matrix of Destiny Visualization and Arcana Interpretation
 
-# Numerology Matrix Calculator
+## Project Overview
 
-## Overview
-
-The **Numerology Matrix Calculator** is a computational tool designed to generate and visualize the "Matrix of Destiny" based on an individual's birth date. This matrix is derived from classical numerological principles and combines elements of number reduction, karmic analysis, and symbolic interpretation through arcana representations. The repository provides both the computational algorithms and visualization tools for a clear, aesthetically pleasing representation of the numerological matrix.
+The **Numerology Matrix Calculator** is a computational tool designed to generate and visualize the "Matrix of Destiny" based on an individual's birth date. This matrix is derived from classical numerological principles and combines elements of number reduction, karmic analysis, and symbolic interpretation from special dataset through arcana representations. The repository provides both the computational algorithms and visualization tools for a clear, aesthetically pleasing representation of the numerological matrix.
 
 The tool serves as a bridge between **numerical analysis, symbolic interpretation, and graphical representation**, offering both researchers and enthusiasts a means to study the relationships between birth date components and their derived numerological values.
 
 ---
 
+## Features
+
+* Calculates numerological numbers based on the date of birth
+* Computes main matrix numbers: Top, Right, Bottom, Left, Center
+* Calculates corner numbers for the large square
+* Visualizes the Matrix of Destiny
+* Reads arcana interpretations from a tab-separated file (`matrix_interpretation.txt`)
+* Outputs detailed interpretations for:
+
+  * Center
+  * Portrait (Left corner)
+  * Other numbers
+
+---
+
+
 ## Theoretical Background
 
-The Matrix of Destiny is constructed according to the following principles:
+The Destiny Matrix is a numerological model based on your date of birth. It combines mathematical reduction (summing and reducing digits to a number ≤ 22) with symbolic meanings from the 22 Major Arcana of Tarot.
+Each zone of the matrix reflects a specific area of your life from your visible personality to your inner purpose and karmic lessons.
 
-1. **Birth Date Input:** The user provides a birth date in the format `DD.MM.YYYY`.
-2. **Day Reduction:** The day component is reduced to a value ≤22 by repeatedly summing its digits.
-3. **Month Reduction:** The month is converted to a number between 1 and 12 (no additional reduction necessary unless desired for consistency).
-4. **Year Reduction:** The year component is reduced by summing all its digits repeatedly until the result is ≤22.
-5. **Karmic Number:** Calculated as the sum of the reduced day, month, and year numbers. If >22, it is further reduced.
-6. **Comfort Point:** Calculated as the sum of day, month, year, and karmic numbers. If >22, it is further reduced.
-7. **Corner Numbers:** Derived by summing adjacent diagonal square numbers of the main matrix. These are also reduced to ≤22 if necessary.
-8. **Arcana Interpretation:** Optionally, each number can be associated with symbolic meanings loaded from a tab-separated file, providing general, central, and birth card interpretations.
+### Diamond (Inner Matrix)
 
-This approach allows for both **quantitative reduction methods** and **qualitative symbolic interpretation**, creating a comprehensive framework for numerological analysis.
-
----
-
-## Computational Implementation
-
-The repository contains the following core components:
-
-- **Input Processing:** Validates and parses the user's birth date into day, month, and year integers.
-- **Reduction Function (`reduce_to_22`):** Public function to repeatedly sum digits until the number is ≤22. Implements the core reduction logic used for all subsequent calculations.
-- **Matrix Calculation:** Computes main numbers (Top, Right, Bottom, Left, Center), karmic, comfort, and corner values.
-- **Visualization:** Uses Matplotlib to generate a two-overlapping-squares (octagon) plot. Main numbers and corners are displayed as colored circles for clarity and aesthetic appeal.
-- **Arcana Interpretation Loader:** Reads tab-separated text files mapping numbers to symbolic meanings, enabling detailed interpretations for research or personal insight.
-- **Output:** Displays numerical results in the console and saves a publication-quality PNG image of the matrix with a title indicating the birth date.
+| Position   | Name                  | Meaning                                  | Number 
+| ---------- | --------------------- | ---------------------------------------- | --------------
+| **Center** | Comfort / Core Energy | Soul essence, inner peace, life purpose. | Day + month + year + Spiritual Karma
+| **Left**   | Portrait              | How others see you, social image.        | Day
+| **Top**    | Hidden Talents        | Natural gifts and potential.             | Month
+| **Right**  | Material Karma        | Financial or practical challenges.       | Year
+| **Bottom** | Spiritual Karma       | Past-life lessons to resolve.            | Day + month + year
 
 
+### Square (Ancestral Programs)
+
+| Position         | Meaning                     |
+| ---------------- | --------------------------- |
+| **Top Left**     | Father’s spiritual lineage. |
+| **Top Right**    | Mother’s spiritual lineage. |
+| **Bottom Left**  | Father’s material lineage.  |
+| **Bottom Right** | Mother’s material lineage.  |
+
+Each corner = sum of two nearby sides.
 
 ---
 
-## Usage
+## Input Data Format
 
-1. Open the Jupyter Notebook `matrix_calculator.ipynb`.
-2. Run the first cell to input your birth date in `DD.MM.YYYY` format.
-3. Execute subsequent cells sequentially to:
-   - Calculate all numerological numbers
-   - Generate the matrix visualization
-   - Load and display arcana interpretations
-4. The visualization will be saved automatically as a PNG file named according to the birth date (e.g., `Matrix_of_Destiny_15-04-1990.png`).
+1. **Birth Date** – entered as `DD.MM.YYYY`
+   Example:
+
+   ```
+   12.12.2012
+   ```
+
+2. **Arcana Interpretation File (`matrix_interpretation.txt`)** – tab-separated values with columns:
+
+   ```
+   number |	name |	general meaning	| central meaning	| outer expression
+   ...
+   ```
+Meanings:
+   * `number` – numeric identifier
+   * `name` – arcana name
+   * `general meaning` – general interpretation
+   * `central meaning` – meaning for the central number
+   * `outer expression` – meaning for portrait
+---
+
+## Output
+
+The program outputs:
+
+* **Matrix Visualization** saved as a PNG file (`matrix_of_destiny.png`)
+* **Arcana Interpretation** in the console, including:
+
+  * Center: number, name, center-specific value
+  * Birth Card (Left): number, name, potrait value
+  * Other main sides: number, name, general value
+  * Big square corners: number, name, general value
+
+Example output:
+
+```
+=== ARCANA INTERPRETATION ===
+
+Center: 11 - Strength  - As a core energy, this Arcanum represents self-mastery and emotional intelligence. The main task is to harmonize passion with reason, expressing strength through empathy. 
+Birth Card (Left): 20 - Judgement  - Outwardly serious, insightful, and dignified. Often carries an aura of purpose or moral depth. Speech and posture convey gravity and awareness. 
+
+
+Other main Arcanas:
+9 - The Hermit  - Symbol of solitude, introspection, and pursuit of truth. Associated with wisdom, patience, and spiritual maturity. 
+8 - Justice  - Symbolizes fairness, balance, law, and moral accountability. Represents evaluation and rational clarity. 
+10 - Wheel of Fortune  - Represents destiny, cycles, and transformation through chance. Symbol of life’s impermanence and karmic rhythm. 
+
+Big Square Corners:
+Corner 1 : 17 - The Star  - Represents hope, inspiration, and spiritual rejuvenation. Symbol of idealism, faith, and gentle creativity. 
+Corner 2 : 18 - The Moon  - Symbol of emotion, imagination, illusion, and subconscious influence. Represents intuition and hidden fears. 
+Corner 3 : 3 - The Empress  - Embodies abundance, beauty, and creative manifestation. Symbol of nurturing energy, growth, and natural prosperity. Reflects harmony between material and emotional fulfillment. 
+Corner 4 : 11 - Strength  - Embodies inner courage, endurance, and compassionate control over instincts. Represents calm power and moral fortitude. 
+```
 
 ---
 
-## Example
+## How to Use
 
-**Input:** `15.04.1990`  
-**Output Matrix Values:**
-- Top (Month): 4  
-- Right (Year): 1  
-- Bottom (Karmic): 6  
-- Left (Day): 6  
-- Center (Comfort): 7  
-- Corners: 5, 7, 12, 10  
+1. Place the Python script and `matrix_interpretation.txt` in the **same folder**.
+2. Run the script in Python 3.8+ or in Jupyter Notebook.
+3. Enter your birth date when prompted (`DD.MM.YYYY`).
+4. The program will automatically:
 
-Visualization: two overlapping squares forming an octagon with colored circles, each number marked clearly in the plot.
-
-Arcana interpretations are displayed in the console.
+   * Calculate all matrix numbers and corners
+   * Visualize the Matrix of Destiny as a PNG file
+   * Print arcana interpretations for center, birth card, other sides, and corners
 
 ---
 
-## Scientific Significance
+## Test
 
-The Numerology Matrix Calculator provides a **systematic framework for numerological research**, combining:
+For testing, use the provided `matrix_interpretation.txt` dataset. 
 
-- **Mathematical reduction techniques** (digit summing, modulo reduction)
-- **Karmic and comfort point calculations**
-- **Geometric visualization of numerical relationships**
-- **Symbolic interpretation via arcana mappings**
-
-This approach allows researchers to explore patterns in birth dates, study symmetry in numerical matrices, and connect numerical structures to symbolic systems in a reproducible and verifiable computational environment.
+1. Run the script.
+2. Verify that `matrix_of_destiny.png` is generated and compare to image from `data\example`
 
 ---
 
-## Requirements
+## Authors
 
-- Python ≥3.7
-- Matplotlib (for visualization)
-- Jupyter Notebook (optional but recommended for interactive use)
+| GitHub                                            | Name          | Role                     |
+| ------------------------------------------------- | ------------- | ------------------------ |
 
----
+> Project developed independently. All code, formulas, and visualizations are original.
 
 ## License
 
 This repository is distributed under the MIT License. Users are free to use, modify, and share the code and data for research and educational purposes.
-
----
-
-## References
-
-1. PEP 257 – Python Docstring Conventions: https://www.python.org/dev/peps/pep-0257/  
-2. Classical numerology texts on digit reduction and karmic calculations.  
-3. Visualization and color-coding inspired by best practices in data representation.
-
-
