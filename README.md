@@ -138,7 +138,7 @@ For testing, use the provided `matrix_interpretation.txt` dataset.
 | GitHub                                            | Name          | Role                     |
 | ------------------------------------------------- | ------------- | ------------------------ |
 
-> Project developed independently. All code, formulas, and visualizations are original.
+> Project developed independently. All code, formulas, interpretations and visualizations are original.
 
 ## License
 
