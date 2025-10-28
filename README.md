@@ -62,7 +62,7 @@ Each corner = sum of two nearby sides.
    12.12.2012
    ```
 
-2. **Arcana Interpretation File (`matrix_interpretation.txt`)** – tab-separated values with columns:
+2. **Arcana Interpretation File (`matrix_interpretation.txt`)** – tab-separated values with columns in folder `data\`:
 
    ```
    number |	name |	general meaning	| central meaning	| outer expression
