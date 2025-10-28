@@ -145,3 +145,8 @@ For testing, use the provided `matrix_interpretation.txt` dataset.
 ## License
 
 This repository is distributed under the MIT License. Users are free to use, modify, and share the code and data for research and educational purposes.
+
+---
+
+**⭐ If this project was helpful, please give it a star!**
+
