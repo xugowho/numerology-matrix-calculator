@@ -26,7 +26,7 @@ The tool serves as a bridge between **numerical analysis, symbolic interpretatio
 
 ## Theoretical Background
 
-The Destiny Matrix is a numerological model based on your date of birth. It combines mathematical reduction (summing and reducing digits to a number ≤ 22) with symbolic meanings from the 22 Major Arcana of Tarot.
+The Destiny Matrix is a numerological model based on your date of birth. It combines mathematical reduction (summing and reducing digits to a number ≤ 22) with symbolic meanings from the 22 Major Arcana of Tarot cards.
 Each zone of the matrix reflects a specific area of your life from your visible personality to your inner purpose and karmic lessons.
 
 ### Diamond (Inner Matrix)
